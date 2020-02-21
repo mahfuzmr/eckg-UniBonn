@@ -1,0 +1,152 @@
+PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/>
+PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX so: <http://schema.org/>
+
+SELECT ?startTime ?endTime ?label ?longitude ?latitude ?location
+WHERE
+{
+ ?event rdf:type sem:Event .
+ ?event rdfs:label "Battle of Stalingrad"@en .
+ GRAPH ?graph {?event rdfs:label ?label} .
+ GRAPH eventKG-g:event_kg {?event sem:hasPlace ?loc} .
+ GRAPH eventKG-g:dbpedia_en { ?loc owl:sameAs ?location . }
+ GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } .
+ GRAPH ?graph { ?event sem:hasEndTimeStamp ?endTime } .
+ GRAPH ?graph {?event so:latitude ?latitude} .
+ GRAPH ?graph {?event so:longitude ?longitude} .
+ FILTER (lang(?label) = 'en')
+}
+===========================================
+
+PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/> PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/> PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX so: <http://schema.org/> SELECT ?startTime ?endTime ?label ?longitude ?latitude ?location WHERE { ?event rdf:type sem:Event . ?event rdfs:label "Battle of Stalingrad"@en . GRAPH ?graph {?event rdfs:label ?label} . GRAPH eventKG-g:event_kg {?event sem:hasPlace ?loc} . GRAPH eventKG-g:dbpedia_en { ?loc owl:sameAs ?location . } GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } . GRAPH ?graph { ?event sem:hasEndTimeStamp ?endTime } . GRAPH ?graph {?event so:latitude ?latitude} . GRAPH ?graph {?event so:longitude ?longitude} . FILTER (lang(?label) = 'en') }
+
+
+=====================================================================================
+
+
+PREFIX eventKG-r: <http://eventKG.l3s.uni-hannover.de/resource/>
+PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/>
+PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX so: <http://schema.org/>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dbr: <http://dbpedia.org/resource/> 
+PREFIX dbo: <http://dbpedia.org/ontology/> 
+PREFIX dbpedia-de: <http://de.dbpedia.org/resource/> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?label ?location ?longitude ?latitude ?startTime ?endTime ?event
+WHERE
+{
+ ?event rdf:type sem:Event .
+ ?event rdfs:label "Attack on Pearl Harbor"@en .
+
+ GRAPH eventKG-g:event_kg {?event sem:hasPlace ?loc} .
+ GRAPH eventKG-g:dbpedia_en { ?loc owl:sameAs ?location . }
+ GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } .
+ GRAPH ?graph { ?event sem:hasEndTimeStamp ?endTime } .
+ GRAPH ?graph {?event rdfs:label ?label} .
+ GRAPH ?graph {?event so:latitude ?latitude} .
+ GRAPH ?graph {?event so:longitude ?longitude} .
+  FILTER (lang(?label) = 'en')
+
+}
+==========================================
+
+PREFIX eventKG-r: <http://eventKG.l3s.uni-hannover.de/resource/> PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/> PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX so: <http://schema.org/> PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbpedia-de: <http://de.dbpedia.org/resource/> PREFIX dcterms: <http://purl.org/dc/terms/> SELECT DISTINCT ?label ?location ?longitude ?latitude ?startTime ?endTime ?event WHERE { ?event rdf:type sem:Event . ?event rdfs:label "Attack on Pearl Harbor"@en . GRAPH eventKG-g:event_kg {?event sem:hasPlace ?loc} . GRAPH eventKG-g:dbpedia_en { ?loc owl:sameAs ?location . } GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } . GRAPH ?graph { ?event sem:hasEndTimeStamp ?endTime } . GRAPH ?graph {?event rdfs:label ?label} . GRAPH ?graph {?event so:latitude ?latitude} . GRAPH ?graph {?event so:longitude ?longitude} . FILTER (lang(?label) = 'en') }
+
+====================================
+
+====================================
+PREFIX eventKG-r: <http://eventKG.l3s.uni-hannover.de/resource/>
+PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/>
+PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX so: <http://schema.org/>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dbr: <http://dbpedia.org/resource/> 
+PREFIX dbo: <http://dbpedia.org/ontology/> 
+PREFIX dbpedia-de: <http://de.dbpedia.org/resource/> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?label ?location ?longitude ?latitude ?startTime ?endTime ?event ?description
+WHERE
+{
+ ?event rdf:type sem:Event .
+ ?event rdfs:label "Battle_of_Trafalgar"@en .
+
+ GRAPH eventKG-g:event_kg {?event sem:hasPlace ?loc} .
+ GRAPH eventKG-g:dbpedia_en { ?loc owl:sameAs ?location . }
+ GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } .
+ GRAPH ?graph { ?event sem:hasEndTimeStamp ?endTime } .
+ GRAPH ?graph {?event rdfs:label ?label} .
+ GRAPH ?graph {?event so:latitude ?latitude} .
+ GRAPH ?graph {?event so:longitude ?longitude} .
+ GRAPH eventKG-g:wikipedia_en { ?event dcterms:description ?description . } .
+ FILTER (lang(?label) = 'en')
+
+}
+===================================
+
+PREFIX eventKG-r: <http://eventKG.l3s.uni-hannover.de/resource/> PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/> PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX so: <http://schema.org/> PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbpedia-de: <http://de.dbpedia.org/resource/> PREFIX dcterms: <http://purl.org/dc/terms/> SELECT DISTINCT ?label ?location ?longitude ?latitude ?startTime ?endTime ?event ?description WHERE { ?event rdf:type sem:Event . ?event rdfs:label "Battle_of_Trafalgar"@en . GRAPH eventKG-g:event_kg {?event sem:hasPlace ?loc} . GRAPH eventKG-g:dbpedia_en { ?loc owl:sameAs ?location . } GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } . GRAPH ?graph { ?event sem:hasEndTimeStamp ?endTime } . GRAPH ?graph {?event rdfs:label ?label} . GRAPH ?graph {?event so:latitude ?latitude} . GRAPH ?graph {?event so:longitude ?longitude} . GRAPH eventKG-g:wikipedia_en { ?event dcterms:description ?description . } . FILTER (lang(?label) = 'en') }
+
+
+====================================
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/>
+PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/>
+PREFIX so: <http://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+SELECT ?startTime group_concat(DISTINCT(STR(?description));separator=',') (?sa AS ?event)
+WHERE {
+ ?event owl:sameAs dbr:World_War_II .
+ ?event sem:hasSubEvent* ?subEvent .
+ ?subEvent sem:hasBeginTimeStamp ?startTime .
+
+ OPTIONAL {
+  GRAPH eventKG-g:wikipedia_en { ?subEvent dcterms:description ?description . } .
+  FILTER(LANGMATCHES(LANG(?description), "en")) .
+ }
+
+ OPTIONAL { GRAPH eventKG-g:dbpedia_en { ?subEvent owl:sameAs ?sa . } . } .
+ FILTER (?startTime >= "1941-02-12"^^xsd:date) .
+ FILTER (?startTime < "1941-02-28"^^xsd:date) .
+
+ FILTER(BOUND(?sa) || BOUND(?description)) .
+}
+GROUP BY ?startTime ?subEvent ?sa
+ORDER BY ASC(?startTime)
+
+=====Stringify=======
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX eventKG-s: <http://eventKG.l3s.uni-hannover.de/schema/> PREFIX eventKG-g: <http://eventKG.l3s.uni-hannover.de/graph/> PREFIX so: <http://schema.org/> PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX dbr: <http://dbpedia.org/resource/> SELECT ?startTime group_concat(DISTINCT(STR(?description));separator=',') (?sa AS ?event) WHERE { ?event owl:sameAs dbr:World_War_II . ?event sem:hasSubEvent* ?subEvent . ?subEvent sem:hasBeginTimeStamp ?startTime . OPTIONAL { GRAPH eventKG-g:wikipedia_en { ?subEvent dcterms:description ?description . } . FILTER(LANGMATCHES(LANG(?description), "en")) . } OPTIONAL { GRAPH eventKG-g:dbpedia_en { ?subEvent owl:sameAs ?sa . } . } . FILTER (?startTime >= "1941-02-12"^^xsd:date) . FILTER (?startTime < "1941-02-28"^^xsd:date) . FILTER(BOUND(?sa) || BOUND(?description)) . } GROUP BY ?startTime ?subEvent ?sa ORDER BY ASC(?startTime)
+==========================
+
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?label  ?startTime
+WHERE
+{
+
+ ?event rdfs:label "Barack Obama"@en .
+ GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } .
+ GRAPH ?graph {?event rdfs:label ?label} .
+
+ FILTER (lang(?label) = 'en')
+
+}
+
+============================
+
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT DISTINCT ?label  ?startTime WHERE { ?event rdfs:label "Barack Obama"@en . GRAPH ?graph { ?event sem:hasBeginTimeStamp ?startTime } . GRAPH ?graph {?event rdfs:label ?label} . FILTER (lang(?label) = 'en') }
